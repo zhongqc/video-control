@@ -4,12 +4,17 @@
     return;
   }
 
+  let currentVideo = videos[0];
   let keysMapping = {
     Space: 32,
     ArrowLeft: 37,
     ArrowUp: 38,
     ArrowRight: 39,
     ArrowDown: 40
+  };
+
+  let player = {
+    focus: false
   };
 
   let step = {
@@ -33,39 +38,52 @@
   });
 
   function addKeyupListener() {
+    document.addEventListener("click", documentClick);
+    currentVideo.addEventListener("click", playerClick);
     document.addEventListener("keyup", keyupListener);
   }
 
   function removeKeyupListener() {
+    document.removeEventListener("click", documentClick);
+    currentVideo.removeEventListener("click", playerClick);
     document.removeEventListener("keyup", keyupListener);
   }
 
+  function documentClick(e) {
+    player.focus = false;
+  }
+
+  function playerClick(e) {
+    player.focus = true;
+  }
+
   function keyupListener(e) {
-    let currentVideo = videos[0];
-    switch (e.keyCode) {
-      case keysMapping.Space:
-        if (currentVideo.paused) {
-          currentVideo.play();
-        } else {
-          currentVideo.pause();
-        }
-        break;
-      case keysMapping.ArrowLeft:
-        currentVideo.currentTime -= step.stepSeconds;
-        break;
-      case keysMapping.ArrowRight:
-        currentVideo.currentTime += step.stepSeconds;
-        break;
-      case keysMapping.ArrowUp:
-        currentVideo.volume =
-          Math.round(currentVideo.volume * 100 + stepVolume) / 100;
-        break;
-      case keysMapping.ArrowDown:
-        currentVideo.volume =
-          Math.round(currentVideo.volume * 100 - stepVolume) / 100;
-        break;
-      default:
-        break;
+    if (player.focus) {
+      switch (e.keyCode) {
+        case keysMapping.Space:
+          if (currentVideo.paused) {
+            currentVideo.play();
+          } else {
+            currentVideo.pause();
+          }
+          break;
+        case keysMapping.ArrowLeft:
+          currentVideo.currentTime -= step.stepSeconds;
+          break;
+        case keysMapping.ArrowRight:
+          currentVideo.currentTime += step.stepSeconds;
+          break;
+        case keysMapping.ArrowUp:
+          currentVideo.volume =
+            Math.round(currentVideo.volume * 100 + stepVolume) / 100;
+          break;
+        case keysMapping.ArrowDown:
+          currentVideo.volume =
+            Math.round(currentVideo.volume * 100 - stepVolume) / 100;
+          break;
+        default:
+          break;
+      }
     }
   }
 })(window);
