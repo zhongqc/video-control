@@ -51,10 +51,12 @@
 
   function documentClick(e) {
     player.focus = false;
+    e.stopPropagation();
   }
 
   function playerClick(e) {
     player.focus = true;
+    e.stopPropagation();
   }
 
   function keyupListener(e) {
