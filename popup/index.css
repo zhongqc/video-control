@@ -1,0 +1,51 @@
+.list {
+    width: 160px;
+    font-size: 14px;
+}
+
+.row {
+    height: 20px;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+.cell {
+    flex: 1 1 auto;
+}
+
+.cell.label {
+    flex: 1 1 auto;
+}
+
+.cell.value {
+    flex: 0 0 auto;
+    width: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.cell.value > input {
+    flex: 1 1 auto;
+    font-size: inherit;
+    height: 20px;
+    width: 60px;
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    outline: none;
+    text-align: right;
+}
+
+.cell.value > span {
+    flex: 0 0 auto;
+    width: 20px;
+}
+
+.cell.button > button {
+    width: calc(100% - 10px);
+    margin: 0 5px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    outline: 0;
+    background-color: #fff;
+}

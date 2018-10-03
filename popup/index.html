@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video Control</title>
+    <link href="./index.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="list">
+        <div class="row">
+            <div class="cell label">
+                步进秒数：
+            </div>
+            <div class="cell value">
+                <input id="stepSeconds" type="text" value="15" />
+                <span>s</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell label">
+                音量增幅：
+            </div>
+            <div class="cell value">
+                <input id="stepVolume" type="text" value="5" />
+                <span>%</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell button">
+                <button id="apply">应用</button>
+            </div>
+            <div class="cell button">
+                <button id="reset">重置</button>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
